@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="" element={<HomePage/>}/>
+                <Route path="/" element={<HomePage/>}/>
                 <Route path="product" element={<ProductPage/>}/>
                 <Route path="pricing" element={<PricingPage/>}/>
                 <Route path="login" element={<Login/>}/>
@@ -22,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                     <Route path="cities" element={<p>List of cities</p>}/>
                     <Route path="countries" element={<p>List of countries</p>}/>
                     <Route path="form" element={<p>form</p>}/>
+                    <Route path="*" element={<p>LIST</p>}/>
                 </Route>
                 <Route path="*" element={<NotFoundPage/>}/>
             </Routes>
