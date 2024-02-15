@@ -1,4 +1,4 @@
-﻿import {BrowserRouter, Route, Routes} from "react-router-dom";
+﻿import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import PricingPage from "./pages/PricingPage.jsx";
@@ -9,7 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import {useEffect, useState} from "react";
 import CountryList from "./components/CountryList.jsx";
 import City from "./components/City.jsx";
-
+import Form from "./components/Form.jsx"
 export default function App() {
     const [cities, setCities] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -42,9 +42,7 @@ export default function App() {
                 <Route path="login" element={<Login/>}/>
                 <Route path="app" element={<AppLayout/>}>
                     <Route index
-                           element={<CityList
-                               cities={cities}
-                               isLoading={isLoading}/>}/>
+                           element={<Navigate to="cities"/>}/>
                     <Route path="cities"
                            element={<CityList
                                cities={cities}
@@ -58,7 +56,7 @@ export default function App() {
                         element={<CountryList
                             cities={cities}
                             isLoading={isLoading}/>}/>
-                    <Route path="form" element={<p>form</p>}/>
+                    <Route path="form" element={<Form/>}/>
 
                 </Route>
                 <Route path="*" element={<NotFoundPage/>}/>
